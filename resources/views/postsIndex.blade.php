@@ -12,7 +12,12 @@
     <script src="{{ mix('js/app.js') }}" defer></script>
 </head>
 <body>
-    <div id="postsindex">
+    <div
+        id="postsindex"
+        data-id='{{$id}}'
+        data-name='{{$name}}'
+        data-email='{{$email}}'
+    >
 
     </div>
     

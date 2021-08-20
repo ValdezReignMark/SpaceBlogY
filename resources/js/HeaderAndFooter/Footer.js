@@ -12,18 +12,11 @@ import LocationOnIcon from '@material-ui/icons/LocationOn';
 
 
     
-const Footer = ()=>{
-
-
-    return(
-        <div>
-        
-  hi
-
-        </div>
+const Footer = () => {
+    return (
+      <footer> 
+        Whatever normally goes into the footer   
+      </footer>
     )
-}
-
-
-export default Footer;
-
+  };
+  export default Footer

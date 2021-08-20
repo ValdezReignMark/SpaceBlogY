@@ -28,58 +28,63 @@ use App\Http\Controllers\ProductController;
 // Route::get('/{path?}', function () {
 //     return view('home');
 // })->where('path','.*');
-  
-Route::get('/', function () {
-        return view('homeIndex');
-    }); 
 
+Route::get('/home', function () {
+    return view('home');
+}); 
 
+    Route::get('/', function () {
+        return view('welcome');
+    });
+    Route::get('/homeIndex', function () {
+            return view('homeIndex');
+        }); 
     Route::get('/usersIndex', function () {
         return view('usersIndex');
     }); 
     Route::get('/postsIndex', function () {
         return view('postsIndex');
     }); 
+    Route::get('/authorsIndex', function () {
+        return view('authorsIndex');
+    }); 
 
 
+    Route::get('/logout', [HomeController::class, 'logout'])->name('logout');
 
-
-
-
-
-
-
-
-
-
-
-
-// Route::get('/', function () {
-//     return view('welcome');
-// });
-// Route::get('/index', function () {
-//         return view('/posts/index');
-//     });
-// Auth::routes();
+Auth::routes();
   
-// Route::get('/home', [HomeController::class, 'index'])->name('home');
+Route::get('/homeIndex', [HomeController::class, 'index'])->name('/homeIndex');
   
-// Route::group(['middleware' => ['auth']], function() {
-//     Route::resource('users', UserController::class);
-//     Route::resource('posts', PostController::class);
+Route::group(['middleware' => ['auth']], function() {
+    Route::get('/postsIndex', function () {
+        return view('postsIndex')->with([
+            'id'=>Auth::user()->id,
+            'name'=>Auth::user()->name,
+            'email'=>Auth::user()->email
+        ]);
+    });
+
+    Route::get('/homeIndex', function () {
+        return view('homeIndex')->with([
+            'id'=>Auth::user()->id,
+            'name'=>Auth::user()->name,
+            'email'=>Auth::user()->email
+        ]);
+    });
+
+    Route::get('/authorsIndex', function () {
+        return view('authorsIndex')->with([
+            'id'=>Auth::user()->id,
+            'name'=>Auth::user()->name,
+            'email'=>Auth::user()->email
+        ]);
+    });
+
+
+    Route::resource('users', UserController::class);
+    Route::resource('posts', PostController::class);
     
-// });
-// Auth::routes();
-
-
-// Route::get('posts/create', [App\Http\Controllers\PostController::class, 'create']);
-// Route::post('posts.index', [App\Http\Controllers\PostController::class, 'store'])->name('posts');
-// Route::get('posts/{post}/edit', [App\Http\Controllers\PostController::class, 'edit']);
-// Route::get('posts/{post}', [App\Http\Controllers\PostController::class, 'show']);
-// Route::put('posts/{post}', [App\Http\Controllers\PostController::class, 'update']);
-// Route::delete('posts/{post}', [App\Http\Controllers\PostController::class, 'destroy']);
-// Route::get('/users/logout', [App\Http\Controllers\UserController::class, 'logout']);
-
-
+});
 
 

@@ -6,6 +6,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Post;
 use Illuminate\Http\Request;
+// use Auth;
 
 class HomeController extends Controller
 {
@@ -27,17 +28,23 @@ class HomeController extends Controller
     public function index()
     {
 
-        // return view('home');
-        $posts = Post::all();
-        return view('posts.index1', compact('posts'));
+
+        return view('/homeIndex');
+        // $posts = Post::all();
+        // return view('homeIndex');
 
 
     }
-    // public function logout(Request $request)
-// {
-//     Auth::logout();
-//     $request->session()->invalidate();
-//     $request->session()->regenerateToken();
-//     return redirect('/');
-// }
+    public function logout()
+    {
+
+        Auth::logout();
+        return view('auth.login');
+        // $posts = Post::all();
+        // return view('homeIndex');
+
+
+    }
+
+
 }

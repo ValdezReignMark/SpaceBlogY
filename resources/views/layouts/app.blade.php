@@ -22,7 +22,7 @@
         <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                   Space Blog
+               Home
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -40,13 +40,15 @@
                             <li><a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a></li>
                             <li><a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a></li>
                         @else
-                            <li><a class="nav-link" href="{{ route('users.index') }}"> Manage Users</a></li>
-                            <li><a class="nav-link" href="{{ route('posts.index') }}"> Manage Posts</a></li>
+          
+                
                            
                             <div>
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }} <span class="caret"></span>
+                                   <br>
+                                    Email: {{ Auth::user()->email }}
                                 </a>
 
 
@@ -64,7 +66,6 @@
                                 </div>
 <!--                              -->
                             </li>
-                            <li><a class="nav-link" href="/users/logout"> Logout</a></li>
                             </div>
                         @endguest
                     </ul>

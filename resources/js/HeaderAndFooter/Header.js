@@ -40,7 +40,7 @@ const useStyles = makeStyles((theme) => ({
   appBar: {
     [theme.breakpoints.up('sm')]: {
       width: `calc(100% - ${drawerWidth}px)`,
-      marginLeft: drawerWidth,
+      // marginLeft: drawerWidth,
     },
   },
   menuButton: {
@@ -60,6 +60,8 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+
+
 function ResponsiveDrawer(props) {
   const { window } = props;
   const classes = useStyles();
@@ -71,6 +73,10 @@ function ResponsiveDrawer(props) {
   };
 
 
+
+
+
+
   const drawer = (
 
     <div >
@@ -80,7 +86,7 @@ function ResponsiveDrawer(props) {
 
       <List>  
          <ListItemLink
-            href="/"
+            href="/homeIndex"
           >
             <ListItemIcon><Home/></ListItemIcon>
             <ListItemText primary="Home" />
@@ -101,7 +107,7 @@ function ResponsiveDrawer(props) {
           </ListItemLink>
 
           <ListItemLink
-            href="#"
+            href="/authorsIndex"
           >
             <ListItemIcon><Attachment/></ListItemIcon>
             <ListItemText primary="Manage Authors" />
@@ -117,19 +123,36 @@ function ResponsiveDrawer(props) {
             <ListItemText primary={text} />
           </ListItem>
         ))}
+
+<Divider />
+      <ListItemLink
+            href="/logout"
+          >
+ 
+            <ListItemIcon><Attachment/></ListItemIcon>
+            <ListItemText primary="Logout" />
+          </ListItemLink>
+
+
+
       </List>
       
+      
       <Divider /> 
+    
     </div>
   );
+
+
+
+
+
+
+
 
   const container = window !== undefined ? () => window().document.body : undefined;
 
   return (
-
-
-
-
 
     <div className={classes.root}>
       <CssBaseline />
@@ -148,14 +171,13 @@ function ResponsiveDrawer(props) {
             <MenuIcon />
           </IconButton>
 
-          <Typography variant="h6" noWrap>
+          <Typography href="/" variant="h6" noWrap>
           Space Blog Rocks
-
-
           </Typography>
-
+          
         </Toolbar>
       </AppBar>
+
 
     <Grid>
       <nav className={classes.drawer} aria-label="mailbox folders">

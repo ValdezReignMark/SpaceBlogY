@@ -27,7 +27,10 @@ const useStyles = makeStyles((theme) => ({
     // }
   }));
 
-const PostsIndex = () => {
+const PostsIndex = (props) => {
+    const { id : userId, name, email } = props;
+    console.log('dataset', props);
+
     //show post
     const [blogPosts, setBlogPosts] = useState([]);
     // edit posts
@@ -56,18 +59,18 @@ const PostsIndex = () => {
         setID(data.id);
         setCreateTitle(data.title); /**get the request */
         setCreateBody(data.body);
-        setCreateUserName(data.user_name);   
+        setCreateUserName(data.name);   
     }
     const saveCreate = async () => {
         let data = {
             id:         id,
             title:      createTitle,
             body:       createBody,
-            user_name:  createUserName,
+            user_name:  name,
         };
         const res = await apisauce.post(`/posts/creatpost`,data)
         if(res.ok) {
-            window.location.replace("/home");
+            window.location.replace("/postsIndex");
             console.log('success')
         }else {
             console.log('fail')
@@ -94,7 +97,7 @@ const PostsIndex = () => {
    
         const res = await apisauce.post(`/posts/update/${id}`,data)
         if(res.ok) {
-            window.location.replace("/home");
+            window.location.replace("/postsIndex");
             console.log('success')
         }else {
             console.log('fail')
@@ -113,7 +116,7 @@ const PostsIndex = () => {
         const res = await apisauce.post(`/posts/delpost/${id}`)
 
         if(res.ok){
-            window.location.replace("/home");
+            window.location.replace("/postsIndex");
             console.log('success')
         }else {
             console.log('fail')
@@ -229,6 +232,7 @@ const PostsIndex = () => {
                     disabled
                 />    
             <TextField
+                    
                     value={editTitle}
                     onChange={(event)=>setEditTitle(event.target.value)}
                     fullWidth
@@ -254,13 +258,9 @@ const PostsIndex = () => {
             fullWidth
         >
             <DialogContent>
+           
             <TextField
-                    value={createUserName}
-                    onChange={(event)=>setCreateUserName(event.target.value)}
-                    fullWidth
-                    multiline={true}
-                />    
-            <TextField
+                    label="Set Title"
                     value={createTitle}
                     onChange={(event)=>setCreateTitle(event.target.value)}
                     fullWidth
@@ -268,6 +268,7 @@ const PostsIndex = () => {
                 />
 
                 <TextField
+                label="Set Content"
                     value={createBody}
                     onChange={(event)=>setCreateBody(event.target.value)}
                     fullWidth

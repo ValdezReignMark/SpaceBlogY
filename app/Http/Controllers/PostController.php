@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Post;
-use Auth;
+use Illuminate\Support\Facades\Auth;
 
 class PostController extends Controller
 {
@@ -14,6 +14,12 @@ class PostController extends Controller
     {
         $posts = Post::all();
         return $posts;
+    }
+    
+    public function showpost()
+    {
+        $showpost = Post::all();
+        return $showpost;
     }
 
   
@@ -60,4 +66,14 @@ class PostController extends Controller
         return $posts;
         
     }
+    public function destroy(Request $request, $id)
+    {   
+     
+        $name = Auth::find($id);
+        $post = Post::where('user_name', $name)->get();
+        $post->delete();
+        return $post;
+        
+    }
+
 }

@@ -40,6 +40,7 @@ Route::post('/posts/show/{id}', [App\Http\Controllers\PostController::class, 'ed
 Route::post('/posts/update/{id}', [App\Http\Controllers\PostController::class, 'update']);
 Route::post('/posts/creatpost', [App\Http\Controllers\PostController::class, 'store']);
 Route::post('/posts/delpost/{id}', [App\Http\Controllers\PostController::class, 'delete']);
+Route::post('/posts/despost/{id}', [App\Http\Controllers\PostController::class, 'destroy']);
 
 
 
