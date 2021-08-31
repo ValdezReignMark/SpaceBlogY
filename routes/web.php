@@ -29,13 +29,64 @@ use App\Http\Controllers\ProductController;
 //     return view('home');
 // })->where('path','.*');
 
-Route::get('/home', function () {
-    return view('home');
+
+Route::get('/b1ContactInformation', function () {
+    return view('b1ContactInformation');
+}); 
+Route::get('/b3CompanyInformation', function () {
+    return view('b3CompanyInformation');
+}); 
+Route::get('/b2HomeInfo', function () {
+    return view('b2HomeInfo');
+}); 
+Route::get('/b1SignIn', function () {
+    return view('b1SignIn');
+}); 
+Route::get('/', function () {
+    return view('b0homePage');
 }); 
 
-    Route::get('/', function () {
-        return view('welcome');
-    });
+
+
+
+
+
+
+
+
+
+    Route::get('/home', function () {
+        return view('home');
+    }); 
+
+
+
+    Route::get('/hubSpotTest', function () {
+        return view('hubSpotTest');
+    }); 
+    
+
+    Route::get('/hubSpotTest1', function () {
+        return view('hubSpotTest1');
+    }); 
+
+    Route::get('/hubSpotTest2', function () {
+        return view('hubSpotTest2');
+    }); 
+
+
+
+
+
+
+
+
+
+
+
+    // Route::get('/', function () {
+    //     return view('welcome');
+    // });
     Route::get('/homeIndex', function () {
             return view('homeIndex');
         }); 

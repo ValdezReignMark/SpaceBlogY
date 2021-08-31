@@ -6,6 +6,13 @@ import HomeIndex from './components/HomeIndex';
 import PostsIndex from './components/PostsIndex';
 import UsersIndex from './components/UsersIndex';
 import AuthorsIndex from './components/AuthorsIndex';
+// import HubSpotTest from './components/hubSpotTest';
+
+
+// if (document.getElementById('hubSpotTest')) {
+//   const props = Object.assign({}, document.getElementById('hubSpotTest').dataset);
+//   ReactDOM.render(<HubSpotTest {...props}/>, document.getElementById('hubSpotTest'));
+// }
 
 
 if (document.getElementById('homeindex')) {
