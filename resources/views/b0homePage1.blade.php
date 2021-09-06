@@ -1,112 +1,211 @@
 <!DOCTYPE html>
 <html>
-<title>NMS Page</title>
+<title>Nms Philippines</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Oswald">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open Sans">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inconsolata">
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">  
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
 
 <style>
-h1,h2,h3,h4,h5,h6 {font-family: "Oswald"}
-body {font-family: "Open Sans"}
+body, html {
+  height: 100%;
+  font-family: "Inconsolata", sans-serif;
+}
+
+.bgimg {
+  background-position: center;
+  background-size: cover;
+  background-image: url("/w3images/coffeehouse.jpg");
+  min-height: 75%;
+}
+
+.services {
+  display: none;
+}
 
 
-
-.responsive-iframe {
-  position: absolute;
-  top: 0;
-  left: 0;
+#bottonnav1 {
+  overflow: hidden;
+  background-color:  #333;
+  position: fixed;
   bottom: 0;
-  right: 0;
-  width: 10%;
-  height: 10%;
-  border: none;
+  width: 100%;
+  text-align:center;
 }
-#betterfuture{
- background-color: red;
+#bottonnav {
+  overflow: hidden;
+  background-color: #333;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  text-align:center;
 }
 
+.bottonnav a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
 
-#redirect {
+.bottonnav a:hover {
+  background: #f1f1f1;
+  color: black;
+}
+
+.bottonnav a.active {
+  background-color: #04AA6D;
+  color: white;
+}
+
+.main {
+  padding: 16px;
+  margin-bottom: 30px;
+}
+.trapezoid1 {
+	border-bottom: 50px solid #555;
+	border-left: 100px solid black;
+	border-right: 100px solid black;
+
+  height: 20px;
+	width: 125px;
+}
+
+/* ----------------------separation------------------------- */
+
+#trapezoid {
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  height: 10px solid darkred;
+  border: 80px solid black;
+  border-top: 10px solid red;
+  border-bottom: 100px solid black;
+  -webkit-border-radius: 20px 20px 0 0;
+  border-radius: 140px 140px 500px 500px;
+  font: normal 100%/normal Arial, Helvetica, sans-serif;
+  color: hsla(120,100%,75%,0.3);
+  -o-text-overflow: clip;
+  text-overflow: clip;
+  -webkit-transform: rotateX(180deg);
+  transform: rotateX(180deg);
+  margin-top:-53px;
+  width: 700px;
+  position: relative;
+  transition: all 0.7s ease;
+  padding-left:7%;
+
+}
+
+#trapezoid a, .subnavbtn {
+ -webkit-transform: rotateX(180deg);
+  transform: rotateX(180deg);
+}
+
+.sub-home {
+  display: none;
   position: absolute;
-  top: 50px;
-  border: 3px solid green;
+  color: red;
+  right: 0;
+  left: 0; 
+
+  z-index: 1;   
+  transform: perspective(-10px);
 }
 
-.dropdown {
+#trapezoid:hover .sub-home {
+  justify-content: center;
+  margin-top: 53px;
+}
+
+.navbar2 {
+  position: sticky;
+  top: 0;
+  display:flex;
+  overflow:hidden;
+  justify-content: center;
+  height: 100px;
+}
+
+.navbar2 a {
+  float: left;
+  font-size: 16px;
+  color: grey;
+  text-align: center;
+  padding: 14px 25px;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  transition: all 0.5s ease;
+}
+
+.subnav {
   float: left;
   overflow: hidden;
 }
 
-
-.dropdown .dropbtn {
-  font-size: 16px;  
+.subnav .subnavbtn {
+  font-size: 16px; 
   border: none;
   outline: none;
   color: white;
-  padding: 14px 16px;
+  padding: 14px 25px;
   background-color: inherit;
   font-family: inherit;
   margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  transition: all 0.5s ease;
 }
 
-.navbar a:hover, .dropdown:hover .dropbtn {
-  background-color: black;
+.navbar2 a:hover, .subnav:hover .subnavbtn {
+  background:black;
+  color: white;
+  border-radius:5px;
 }
 
-.dropdown-content {
-  float: absolute;
+.subnav-content {
   display: none;
   position: absolute;
-  background-color: gray;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 1;
+  left: 0;
+  width: 100%;
+  z-index: 1;   
+  transform: perspective(-10px);
 }
 
-.dropdown-content a {
-  float: none;
-  color: white;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
-  text-align: left;
-}
-
-.dropdown-content a:hover {
-  background-color: #ddd;
-}
-
-.dropdown:hover .dropdown-content {
-  display: block;
-}
-/* end dropdown */
-
-.button5 {
-  border-radius: 50%;
-   background-color: #ff6666; 
-   display: inline-block;
-  font-size: 4px; 
-  text-align: center;
-  text-decoration: none;
-}
-/* Create two equal columns that floats next to each other */
-.column {
+.subnav-content a {
   float: left;
-  width: 50%;
-  padding: 10px;
-  height: 300px; /* Should be removed. Only for demonstration */
+  color: white;
+  text-decoration: none; 
 }
 
-/* Clear floats after the columns */
-.row:after {
-  content: "";
-  display: table;
-  clear: both;
+.subnav-content a:hover {
+  background:#B993D6;
+  color: black;
+}
+
+.subnav:hover .subnav-content {
+  display: flex;
+  justify-content: center;
+}
+div.fixed {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  width: 50px;
+  border: 3px solid #8B0000;
+}
+div.fixed1 {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 50px;
+  border: 3px solid #8B0000;
 }
 input.largerCheckbox {
             width: 20px;
@@ -118,142 +217,91 @@ input.largerCheckbox {
   border-bottom-left-radius: 25px;
 }
 
+
 </style>
+<body>
 
-<body onload="startTime()" >
+<div class="fixed w3-black" onclick="homehome()">
+<p class="w3-center button"><i>Next</i></p>
+</div>
+<div class="fixed1 w3-black" onclick="homehome()">
+<i class="fa fa-arrow-right"><p class="w3-center button">Next</p></i>
+</div>
 
-<!-- w3-content defines a container for fixed size centered content, 
-and is wrapped around the whole page content, except for the footer in this example -->
+<!-- Links (sit on top) -->
+<div class="w3-top w3-white ">
+  <div  class="w3-row w3-white ">
+   <nav class="navbar2">
+     
+   <div id="trapezoid">
+  
 
-<div class="w3-content" style="max-width:1600px">
-<div class="w3-top ">
-  <div class="w3-bar w3-black w3-wide w3-padding w3-card">
-  <img href="#home" class=" w3-button" width="15%" src="/images/nmslogo.png">
-  <i class="w3-bar-item  w3-right"  id="clock"></i> 
-    <!-- Float links to the right. Hide them on small screens -->
-    
+    <a class="sub-home"  onclick="homehome()">Home</a>
+
+      <div class="w3-col s3">
+        <a href="#about" class=" expandHome w3-button  ">ABOUT</a>
+      </div>
+      <div class="w3-col s3">
+        <a href="#services" class=" expandHome w3-button  ">SERVICES</a>
+      </div>
+      <div class="w3-col s3">
+        <a href="#products" class="w3-button  expandHome">PRODUCTS</a>
+      </div>
+      <div class="w3-col s3">
+        <a href="#news" class="w3-button  expandHome">NEWS</a>
+      </div>
+    </div>
+   </nav>
   </div>
- <header class="w3-display-container w3-content w3-wide" style="max-width:1500px;" id="home">
+</div>
+
+
+<!-- Header with image -->
+
+<!-- ---------------------1111------------------- -->
+<header class="bgimg w3-display-container w3-grayscale-min" id="home">
+ 
+<!-- <div class="w3-display-bottomleft w3-center w3-padding-large w3-hide-small">
+  <h3 class="w3-orange">Welcome to <span class="w3-tag">NMS World</span></h3>
+  </div> -->
+ 
+  <div class="w3-display-middle w3-center">
+  <a href="#"><img style="width:100%" src="/images/NMSlogo.png" class="img-fluid w3-bar-item  w3-center " alt="logonotag"> </a>
+  </div>
+<!--   
+  <div class="w3-display-bottomright w3-center w3-padding-large">
+  <h3 class="w3-orange">Welcome to <span class="w3-tag">NMS World</span></h3>
+  </div> -->
 
 </header>
+
+<div class="container w3-center w3-animate-bottom">
+<iframe class="responsive-iframe" width="500" height="500" src="https://www.youtube.com/embed/W3XLJV0FqvM"
+             title="YouTube video player" frameborder="0" 
+             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+             allowfullscreen>
+            </iframe>
 </div>
-
-
-
-<!--sub Header -->
-<header class="w3-display-container w3-content w3-wide" style="max-width:1500px;" id="home">
-  <img class="w3-image " src="/images/forrestone.jpg"  width="1500" height="300">
-  
-  <div class="w3-display-middle w3-margin-top w3-center">
-  <div class="w3-right w3-hide-small " >  
-      <b>
-    
-      <div class="dropdown ">
-              <button class="dropbtn">About 
-                <i class="fa fa-caret-down"></i>
-              </button>
-              <div class="dropdown-content">
-                <a href="#">saan 1</a>
-                <a href="#">saan 2</a>
-                <a href="#">saan 3</a>
-              </div>
-          </div>
-          <div class="dropdown ">
-              <button class="dropbtn">Services 
-                <i class="fa fa-caret-down"></i>
-              </button>
-              <div class="dropdown-content">
-                <a href="#">saan 1</a>
-                <a href="#">saan 2</a>
-                <a href="#">saan 3</a>
-              </div>
-          </div>
-          
-      <div class="dropdown ">
-              <button class="dropbtn">Products 
-                <i class="fa fa-caret-down"></i>
-              </button>
-              <div class="dropdown-content">
-                <a href="#">saan 1</a>
-                <a href="#">saan 2</a>
-                <a href="#">saan 3</a>
-              </div>
-          </div>
-        <div class="dropdown ">
-              <button class="dropbtn">News 
-                <i class="fa fa-caret-down"></i>
-              </button>
-              <div class="dropdown-content">
-                <a href="#">saan 1</a>
-                <a href="#">saan 2</a>
-                <a href="#">saan 3</a>
-              </div>
-          </div>
-          <button class="button button5" href="" ><h5><b>Contact US</b></h5></button>
-      </b>
+<div class="w3-sand w3-white w3-large">
+<!-- About Container -->
+<!-- ---------------------2222222------------------- -->
+<div class="w3-container" id="about">
+  <div class="w3-content" style="max-width:700px">
+    <h5 class="w3-center w3-padding-64"><span class="w3-tag w3-wide"></span></h5>
+      <h1><p>About</p></h1>
+    <p>"We Manage Communications and Content of Consumers through SMS, IM, Email and Voice Solutions. ]
+      We aim to conquer the impossible through commitment to teamwork between staff and customers. We Achieve The Impossible Together"</p>
+    <p>"We Manage Communications and Content of Consumers through SMS, IM, Email and Voice Solutions. 
+      We aim to conquer the impossible through commitment to teamwork between staff and customers. We Achieve The Impossible Together"</p>
+    <div class="w3-panel w3-leftbar w3-light-grey">
+      <p><i>"Use products from nature for what it's worth - but never too early, nor too late." Fresh is the new sweet.</i></p>
+      <p>Junior Programmer, Employee and Pogi: Reign Mark Valdez</p>
     </div>
+    <img src="/images/coffeeshop.jpg" style="width:100%;max-width:1000px" class="w3-margin-top">
+    <p><strong>Opening hours:</strong> everyday from 9am to 6pm .</p>
+    <p><strong>Address:</strong> Staffhouse Road BCEZ-PEZA, Loakan Rd, Baguio, 2600 Benguet</p>
     
-    <h1>
-      <span class="w3-padding w3-black w3-opacity-min">
-        <b class="w3-text-red">NMS</b></span> 
-        <span class="w3-hide-small w3-text-white">New Media Services</span>
-      </h1>
-        <p id="betterfuture" class=" w3-text-white w3-bold"><u>We drive for better future</u></p>
-        <h6><button class="w3-text-red w3-button-black w3-padding-large w3-large w3-opacity-wide w3-hover-opacity-off" onclick="document.getElementById('subscribe').style.display='block'">SUBSCIBRE NOW</button></h6>
-      </div>
-    </header>
-  </div>
-</div>
-
-
-    <!-- Blog entries -->
-    <div class=" w3-column w3-border-0 w3-border-top w3-align-center">
-      <!-- Blog entry -->
-      <div class="w3-container w3-transparent w3-margin  w3-padding-large">
-        <div class="w3-center">
-        <a  href="#"><img style="width:50%" src="/images/nmslogo.png" class="img-fluid w3-bar-item  w3-center  " alt="nmslogo"> </a>       
-        <h2>NMS delivery and Services</h2>
-          <h5 >Media & Intertainment</h5>
-              <div class="w3-justify">
-                <img src="" alt="" style="width:100%" class="w3-padding-16">
-                <p><strong>Entertainment marketing</strong>
-                is a subdivision of marketing which grows by using the ground of entertainment world for awareness and promotion of the brand, product or services. Entertainment marketing works best when it provides benefits to both brands and pop culture. 
-                Only a brand gets successful when it runs the brand exposure and entertainment parallel. For instance, movies, celebrity, and characters. It is not always necessary to find entertainment marketing in every brand promotion, 
-                but you may find some specific types of entertainment marketing such as event sponsorship, product placement or celebrity endorsements.
-                
-                <p><strong>Social media marketing </strong> is the use of social media platforms and websites to promote a product or service. 
-                  Although the terms e-marketing and digital marketing are still dominant in academia, social media marketing is becoming more popular for both practitioners and researchers.</p>
-              </div>
-
-        </div>
-
-        
-      </div>
-      <!-- <hr> -->
-    <!-- END of ENTRIES -->
-
-    <hr>
-
-   
-      
-      <!-- next Container -->
-    <div class="w3-row"> 
-      <div class="w3-container w3-half">
-           <p ><h1 class="w3-center"><b>Services And Solutions</b></h1><h4 class="w3-center"> Get Connected and Contact Our Dedicated team </h4> </p>
-           <button style="display:none" id="opensubutton" class="w3-button-sm w3-center w3-block w3-padding-small w3-red w3-margin-bottom" onclick="cntInfo()" ><h2>Sign Up</h2></button>
-           <p class="w3-center"><b class="w3-center">Get Started</b></p>
-           <p class="w3-center">Read The Discription Below</p>
-              <div class="w3-container">
-                <label class="w3-column w3-center w3-margin w3-text" >NMS Productions needs the contact information you provide to us to contact you about our products and services. You may unsubscribe from these communications at any time. For information on how to unsubscribe, as well as our privacy practices and commitment to protecting your privacy, please review our Privacy Policy. </label>
-              </div>
-              <div class=" w3-center "> 
-                <br>
-                <label class=" w3-center " for="togglebtn"><u> Are you Ready to Comit? Click HERE</u> </label>
-                <br>
-                <input class="largerCheckbox" type="checkbox"   id="togglebtn" onclick="clickcheck()"></input>
-              </div>
-      </div>
-      <div class="w3-container w3-half">
+    <div class="w3-container w3-half">
         <p style="w3-text-lg "> <h1 class="w3-center "><b> The Company </b></h1> <p>
         <p class="w3-xlarge w3-bold" ><i class="material-icons" style="font-size:48px;color:red">flag</i>Who are we</p>
         <h6 id="example1">  We are the world , we are the people we deliver services, We are the world , we are the people we deliver servicesWe are the world , we are the people we deliver servicesWe are the world , we are the people we deliver services</h6>
@@ -264,112 +312,160 @@ and is wrapped around the whole page content, except for the footer in this exam
 
      
       </div>
-    </div>
-    
-
-      <hr>
-
-      <div class="w3-row w3-white w3-margin">
-        <div class="w3-row w3-padding w3-black">
-          <h4 class="w3-center">Learn About Us</h4>
-        </div>
-        
-        <div class="w3-row">
-        <iframe width="418" height="320"
-        title="YouTube video player"; frameborder="0" ;
-             allow="accelerometer; autoplay; clipboard-write; encrypted-media;
-              gyroscope; picture-in-picture; allowfullscreen"
-          src="https://www.youtube.com/embed/W3XLJV0FqvM">
-          </iframe>
-        </div>
-           
-      </div>
-      <hr>
-
-
-
-
-
-
-    <div class="row">
-      <div class="column">
-
-      <p></p>1
-       
-       
-        <input >
-                                                                                                        
-      </input>
-
-      </div>
-      <div class="column w3-border w3-center ">
-        <div class="w3-container  w3-padding w3-white w3-margin">
-          <h4>Follow Us</h4>
-        </div>
-          <a href="https://www.facebook.com/NMSPhilippines" target="_blank" class="fa fa-facebook-official w3-text-blue w3-hover-opacity"> Facebook</a>..........
-          <a href="https://www.instagram.com/nmsphilippines" target="_blank" class="fa fa-instagram w3-text-pink w3-hover-opacity"> Instagram</a>..........
-          <a href="https://twitter.com/nmsphilippines" target="_blank" class="fa fa-twitter w3-text-light-blue w3-hover-opacity"> Tweeter</a>
-        </br>
-          <a href="https://www.nms.ph" target="_blank" class="fa fa-address-card-o w3-text-green w3-hover-opacity"> Website </a>............
-         <a href="https://www.linkedin.com/company/nms" target="_blank" class="fa fa-linkedin w3-text-blue w3-hover-opacity"> Linkedin</a>...........
-         <a href="https://newmediaservices.com.au" target="_blank"  class="fa fa-cloud w3-text-black w3-hover-opacity"> CLoud</a>
-          <!--  <i class="fa fa-pinterest-p w3-hover-opacity"></i>-->
-        </div>
-    </div>
-
-    </div>
-
-
-
-
-
-
-
-    <!-- About/Information menu -->
-     <div class="w3-col l4">
-
-
-
-      </div> 
-    
-    </div>
-
-  <!-- END GRID -->
   </div>
-<!-- END w3-content -->
+</div>
+
+<!-- Menu Container -->
+<!-- ---------------------3333------------------- -->
+<div class="w3-container" id="services">
+  <div class="w3-content" style="max-width:700px">
+    <h5 class="w3-center w3-padding-48"><span class="w3-tag w3-wide"></span></h5>
+   <h1 class="w3-container"> <p>Services and Products </p> </h1>
+    <div class="w3-row w3-center w3-card w3-padding">
+      <a href="javascript:void(0)" onclick="openMenu(event, 'Srvc');" id="myLink">
+        <div class="w3-col s6 tablink">Services</div>
+      </a>
+      <a href="javascript:void(0)" onclick="openMenu(event, 'mdia');">
+        <div class="w3-col s6 tablink">Media</div>
+      </a>
+    </div>
+<!-- ------------------------4--------------- -->
+    <div id="Srvc" class="w3-container services w3-padding-48 w3-card">
+      <!-- <h5>Bread Basket</h5>
+      <p class="w3-text-grey">Assortment of fresh baked fruit breads and muffins 5.50</p><br>
+    
+      <h5>Honey Almond Granola with Fruits</h5>
+      <p class="w3-text-grey">Natural cereal of honey toasted oats, raisins, almonds and dates 7.00</p><br>
+    
+      <h5>Belgian Waffle</h5>
+      <p class="w3-text-grey">Vanilla flavored batter with malted flour 7.50</p><br>
+    
+      <h5>Scrambled eggs</h5>
+      <p class="w3-text-grey">Scrambled eggs, roasted red pepper and garlic, with green onions 7.50</p><br>
+    
+      <h5>Blueberry Pancakes</h5>
+      <p class="w3-text-grey">With syrup, butter and lots of berries 8.50</p> -->
+      <h5>Call Center</h5>
+      <p class="w3-text-grey">We providewhat your company needs to run and make profit</p><br>
+    
+      <h5>Mesaging</h5>
+      <p class="w3-text-grey">We updated whatever need for the company</p><br>
+    
+      <h5>Web development</h5>
+      <p class="w3-text-grey">We provide and constrcut usable application </p><br>
+      <h5>Call Center</h5>
+      <p class="w3-text-grey">We providewhat your company needs to run and make profit</p><br>
+    
+      <h5>Mesaging</h5>
+      <p class="w3-text-grey">We updated whatever need for the company</p><br>
+    
+      <h5>Web development</h5>
+      <p class="w3-text-grey">We provide and constrcut usable application </p><br>    
+    </div>
+<!-- --------------------------------------------------------------------------------------------------------------- -->
+    <div id="mdia" class="w3-container services w3-padding-48 w3-card">
+      <h5>Call Center</h5>
+      <p class="w3-text-grey">We providewhat your company needs to run and make profit</p><br>
+    
+      <h5>Mesaging</h5>
+      <p class="w3-text-grey">We updated whatever need for the company</p><br>
+    
+      <h5>Web development</h5>
+      <p class="w3-text-grey">We provide and constrcut usable application </p><br>
+    
+      <h5>Call Center</h5>
+      <p class="w3-text-grey">We providewhat your company needs to run and make profit</p><br>
+    
+      <h5>Mesaging</h5>
+      <p class="w3-text-grey">We updated whatever need for the company</p><br>
+    
+      <h5>Web development</h5>
+      <p class="w3-text-grey">We provide and constrcut usable application </p><br>
+      <!-- <h5>Iced tea</h5>
+      <p class="w3-text-grey">Hot tea, except not hot 3.00</p><br> -->
+    
+      <!-- <h5>Soda</h5>
+      <p class="w3-text-grey">Coke, Sprite, Fanta, etc. 2.50</p> -->
+    </div>  
+
+  </div>
+</div>
+
+<!-- Contact/Area Container -->
+<!-- ---------------------555555555------------------- -->
+<div class="w3-container" id="products" style="padding-bottom:32px;">
+  <div class="w3-content" style="max-width:700px">
+    <h5 class="w3-center w3-padding-48"><span class="w3-tag w3-wide"></span></h5>
+    <h1> <p>Services And Solutions </p> </h1>
+    <div class="w3-row"> 
+      <div class="w3-container w3-half">
+           <p ><h1 class="w3-center"><b></b></h1><h4 class="w3-center"> Get Connected and Contact Our Dedicated team </h4> </p>
+           <p class="w3-center"><b class="w3-center">Get Started</b></p>
+           <p class="w3-center">Read The Discription Below</p>
+              <div class="w3-container">
+                <label class="w3-column w3-center w3-margin w3-text" >NMS Productions needs the contact information you provide to us to contact you about our products and services. You may unsubscribe from these communications at any time. For information on how to unsubscribe, as well as our privacy practices and commitment to protecting your privacy, please review our Privacy Policy. </label>
+              </div>
+              <div class=" w3-center "> 
+              <button style="display:none" id="opensubutton" class="w3-button-sm w3-center w3-block w3-padding-small w3-red w3-margin-bottom" onclick="cntInfo()" ><h2>Sign Up</h2></button>
+
+                <br>
+                <label class=" w3-center " for="togglebtn"><u> Are you Ready to Comit? Click HERE</u> </label>
+                <br>
+                <input class="largerCheckbox" type="checkbox"   id="togglebtn" onclick="clickcheck()"></input>
+              </div>
+      </div>
+      <div class="w3-container w3-half">
+        <image style="width:100%;height:100%px" src="/images/webdesign.png">
+        <image style="width:100%;height:100%px" src="/images/callcenter.png">
+        <image style="width:100%;height:100%px" src="/images/chat.png">
+    </div>
+    <div class="w3-container">
+    <img src="" class="w3-image" style="width:100%">
+    <p><span class="w3-tag">FYI!</span> We offer services , messaging, im , call center, web design large or small. Will understand your needs and we will enhance a good project that makes you profit</p>
+    <p><strong>Message</strong>  ask and just send us a message:</p>
+    </div >
+    <form action="/action_page.php" target="_blank">
+      <p><input class="w3-input w3-padding-16 w3-border" type="text" placeholder="Work Mail" required name="Name"></p>
+      <p><input class="w3-input w3-padding-16 w3-border" type="text" placeholder="Company Name" required name="People"></p>
+      <p><button class="w3-button w3-black" type="submit">Submit</button></p>
+    </form>
+  </div>
 </div>
 
 
+<div class="w3-container" id="news" style="padding-bottom:32px;">
+  <div class="w3-content" style="max-width:700px">
+    <h5 class="w3-center w3-padding-48"><span class="w3-tag w3-wide"></span></h5>
+    <h1> <p>News / Blog </p> </h1>
+    <p>Contact us at To address your needs.</p>
+    <img src="" class="w3-image" style="width:100%">
+    <p><span class="w3-tag">FYI!</span> Tech that replaces our stores.</p>
+    <p><strong>Reserve</strong>We have experimented with chatbots for years. Facebook has offered tools for merchants to make bots that engage with customers. Retailers like Amazon have used chatbots to answer customers’ questions, and when the bots can’t help, a person can hop in to take over.
+
+    <p><span class="w3-tag">FYI!</span> Tech that lets us keep our hands to ourselves.</p>
+    <p><strong>Reserve</strong>Last year was an inflection point for mobile payments. For safety reasons, even cash-only die-hards, like farmers’ market merchants and food trucks, started accepting mobile payments
+Over all, 67 percent of American retailers accept touchless payments, up from 40 percent in 2019, according to a survey by Forrester. Among those surveyed, 19 percent said they made a digital payment in a store for the first time last May.
+Hands-off technology doesn’t end with mobile wallets. So-called Ultra-Wide Band, a relatively new radio technology, may also find its moment this year. The technology, which uses radio waves to detect objects with extreme precision, has not been used much since its debut on smartphones about two years ago. But the need for contact-free experiences could change that, said Ms. Milanesi of Creative Strategies.
+
+<p><span class="w3-tag">FYI!</span> Tech that replaces our stores.</p>
+<p><strong>Reserve</strong>The pandemic has made it clear that virtualized experiences, like video meetings and Zoom yoga, are viable substitutes for the real thing, whether you embrace them or endure them. In 2021, expect more products to offer to digitize the way we work and stay healthy.
 
 
 
+    <form action="/action_page.php" target="_blank">
+        <p><input class="w3-input w3-padding-16 w3-border" type="text" placeholder="Share Your Thoughts" required name="Message"></p>
+      <p><button class="w3-button w3-black" type="submit">SEND MESSAGE</button></p>
+    </form>
+  </div>
+</div>
 
+<!-- End page content -->
+</div>
 
-
-
-                      <!-- Subscribe Modal -->
-                      <div id="subscribe" class="w3-modal w3-animate-opacity">
-                        <div class="w3-modal-content" style="padding:32px">
-                          <div class="w3-container w3-white">
-                            <i onclick="document.getElementById('subscribe').style.display='none'" class="fa fa-remove w3-transparent w3-button w3-xlarge w3-right"></i>
-                            <h2 class="w3-wide">Contact The team</h2>
-                            <a id="ContentContainer" class="w3-button w3-block w3-padding-medium w3-orange w3-margin-bottom" href="/b1SignIn" target="_blank"><h2>Contact The Team</h2></a>
-                          </div>
-                        </div>
-                      </div>
-
-
-<hr>
 <!-- Footer -->
-<footer class="w3-container w3-black" style="padding:32px">
-  <a href="#" class="w3-button w3-black "><i class="fa fa-arrow-up"></i>Subscibe Now  </a>
+<footer class="w3-center w3-light-grey w3-padding-48 w3-large">
+  <!-- <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" title="W3.CSS" target="_blank" class="w3-hover-text-green">w3.css</a></p> -->
 </footer>
-
-<!-- <script  language = "javascript" type = "text/javascript">
-document.write("Hello people!")
-</script> -->
-
-
 
 <script>
 
@@ -383,78 +479,61 @@ function clickcheck() {
   }
 }
 
-  
-// Toggle between hiding and showing 
-// document.getElementById("myBtn").click();
-// function myFunction(id) {
-//   var x = document.getElementById(id);
-//   if (x.className.indexOf("w3-show") == -1) {
-//     x.className += " w3-show";
-//   } else { 
-//     x.className = x.className.replace(" w3-show", "");
-//   }
-// }
 
-// function likeFunction(x) {
-//   x.style.fontWeight = "bold";
-//   x.innerHTML = "✓ Liked";
-// }
-
-
-function startTime() {
-  const today = new Date();
-  // let d = today.getDate();
-  // let mt = today.getMonth();
-  // let = today.getFullYear()
-  let h = today.getHours();
-  let m = today.getMinutes();
-  let s = today.getSeconds();
-  m = checkTime(m);
-  s = checkTime(s);
-  document.getElementById('clock').innerHTML =  h + ":" + m + ":" + s;
-  setTimeout(startTime, 1000);
+function homehome2() {
+  location.replace("http://127.0.0.1:8000/b0homePage1")  
 }
-
-function checkTime(i) {
-  if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
-  return i;
+function homehome() {
+  location.replace("http://127.0.0.1:8000")  
 }
 
 
-
-function cntInfo() {
-  location.replace("http://127.0.0.1:8000/b1ContactInformation")  
+// Tabbed Menu
+function openMenu(evt, menuName) {
+  var i, x, tablinks;
+  x = document.getElementsByClassName("services");
+  for (i = 0; i < x.length; i++) {
+    x[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablink");
+  for (i = 0; i < x.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" w3-dark-grey", "");
+  }
+  document.getElementById(menuName).style.display = "block";
+  evt.currentTarget.firstElementChild.className += " w3-dark-grey";
 }
-// function lnkedn() {
-//   location.replace("https://www.https://www.linkedin.com/company/nms")  
-// }
-// function instag() {
-//   location.replace("https://www.instagram.com/nmsphilippines")  
-// }
-// function wbste() {
-//   location.replace("https://www.nms.ph")  
-// }
-// function twtter() {
-//   location.replace("https://twitter.com/nmsphilippines")  
-// }
-// function twtter() {
-//   location.replace("https://newmediaservices.com.au")  
-// }
+document.getElementById("myLink").click();
+
+
+$('.expandHome').mouseover(function() {
+  $('.sub-home').css({
+        'display': 'block'
+    }); 
+});
+$('.subnavbtn').mouseover(function() {
+  $('.sub-home').css({
+        'display': 'none'
+    }); 
+});
+
+$('#trapezoid').mouseleave(function() {
+  $('#trapezoid').css({
+        'margin-top': '-53px'
+    }); 
+    $('.sub-home').css({
+        'display': 'none'
+    }); 
+}).mouseenter(function() {
+  $('#trapezoid').css({
+        'margin-top': '0px'
+    }); 
+});
+
+
+
+
+
 </script>
 
-
-
-
-
-
-
-
-
-
 </body>
-
-
-
-
-
 </html>

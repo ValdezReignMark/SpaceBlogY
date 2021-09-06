@@ -30,18 +30,21 @@ use App\Http\Controllers\ProductController;
 // })->where('path','.*');
 
 
-// Route::get('/b1ContactInformation', function () {
-//     return view('b1ContactInformation');
-// }); 
+Route::get('/b1ContactInformation', function () {
+    return view('b1ContactInformation');
+}); 
+Route::get('/b2ThankYou', function () {
+    return view('b2ThankYou');
+}); 
 // Route::get('/b3CompanyInformation', function () {
 //     return view('b3CompanyInformation');
 // }); 
 // Route::get('/b2HomeInfo', function () {
 //     return view('b2HomeInfo');
 // }); 
-// Route::get('/b1SignIn', function () {
-//     return view('b1SignIn');
-// }); 
+Route::get('/b1SignIn', function () {
+    return view('b1SignIn');
+}); 
 Route::get('/', function () {
     return view('b0homePage');
 }); 

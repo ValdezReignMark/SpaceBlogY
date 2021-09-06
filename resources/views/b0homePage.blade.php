@@ -1,19 +1,27 @@
 <!DOCTYPE html>
 <html>
-<title>NMS Page</title>
+<title>NMS Philippines</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Oswald">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open Sans">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 
 <style>
 h1,h2,h3,h4,h5,h6 {font-family: "Oswald"}
 body {font-family: "Open Sans"}
 
+html, body {
+  margin: 0;
+  height: 100%;
+}
+
+.checkedstar {
+  color: orange;
+}
 
 
 .responsive-iframe {
@@ -90,7 +98,7 @@ body {font-family: "Open Sans"}
   border-radius: 50%;
    background-color: #ff6666; 
    display: inline-block;
-  font-size: 4px; 
+  font-size: 1px; 
   text-align: center;
   text-decoration: none;
 }
@@ -243,18 +251,92 @@ input.largerCheckbox {
 @media only screen and (max-width: 300px) {
   .prev, .next,.textslide {font-size: 11px}
 }
+.trapezoid {
+	border-bottom: 50px solid #555;
+	border-left: 25px solid transparent;
+	border-right: 25px solid transparent;
+	height: 0;
+	width: 125px;
+}
+.bgimg {
+  background-position: center;
+  background-size: cover;
+  background-image: url("/w3images/coffeehouse.jpg");
+  min-height: 75%;
+}
+
+.services {
+  display: none;
+}
+
+
+#bottonnav {
+  overflow: hidden;
+  background-color: #333;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  text-align:center;
+}
+
+.bottonnav a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.bottonnav a:hover {
+  background: #f1f1f1;
+  color: black;
+}
+
+.bottonnav a.active {
+  background-color: #04AA6D;
+  color: white;
+}
+#a {
+  width: 150px;
+  height: 100px;
+  background-color: red;
+  -ms-transform: skewY(20deg); /* IE 9 */
+  transform: skewY(20deg);
+}
+div.fixed {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  width: 50px;
+  border: 3px solid #8B0000;
+}
+div.fixed1 {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 50px;
+  border: 3px solid #8B0000;
+}
 
 </style>
 
 <body onload="startTime()" >
-
+<div class="fixed w3-black" onclick="homehome2()">
+<p class="w3-center button "><i>Next</i></p>
+</div>
+<div class="fixed1 w3-black" onclick="homehome2()">
+<p class="w3-center button"><i>Next</i></p>
+</div>
 <!-- w3-content defines a container for fixed size centered content, 
 and is wrapped around the whole page content, except for the footer in this example -->
 
 <div class="w3-content" style="max-width:1600px">
+
 <div class="w3-top ">
-  <div class="w3-bar w3-black w3-wide w3-padding w3-card">
-  <img href="#home" class=" w3-button" width="15%" src="/images/nmslogo.png">
+  <div class="w3-bar w3-black w3-text-white w3-wide w3-padding w3-card">
+  <img  href="#home" class=" w3-button" width="15%" src="/images/nmslogo.png">
   <i class="w3-bar-item  w3-right"  id="clock"></i> 
     <!-- Float links to the right. Hide them on small screens -->
     
@@ -275,8 +357,7 @@ and is wrapped around the whole page content, except for the footer in this exam
       <b>
     
       <div class="dropdown ">
-              <button class="dropbtn">About 
-                <i class="fa fa-caret-down"></i>
+              <button  onclick="abouthome()" class="dropbtn">About 
               </button>
               <div class="dropdown-content">
                 <a href="#">saan 1</a>
@@ -285,8 +366,8 @@ and is wrapped around the whole page content, except for the footer in this exam
               </div>
           </div>
           <div class="dropdown ">
-              <button class="dropbtn">Services 
-                <i class="fa fa-caret-down"></i>
+              <button onclick="serviceshome()" class="dropbtn">Services 
+       
               </button>
               <div class="dropdown-content">
                 <a href="#">saan 1</a>
@@ -296,8 +377,8 @@ and is wrapped around the whole page content, except for the footer in this exam
           </div>
           
       <div class="dropdown ">
-              <button class="dropbtn">Products 
-                <i class="fa fa-caret-down"></i>
+              <button onclick="productshome()" class="dropbtn">Products 
+    
               </button>
               <div class="dropdown-content">
                 <a href="#">saan 1</a>
@@ -306,8 +387,8 @@ and is wrapped around the whole page content, except for the footer in this exam
               </div>
           </div>
         <div class="dropdown ">
-              <button class="dropbtn">News 
-                <i class="fa fa-caret-down"></i>
+              <button onclick="newshome()" class="dropbtn">News 
+         
               </button>
               <div class="dropdown-content">
                 <a href="#">saan 1</a>
@@ -315,7 +396,7 @@ and is wrapped around the whole page content, except for the footer in this exam
                 <a href="#">saan 3</a>
               </div>
           </div>
-          <button class="button button5" href="" ><h5><b>Contact US</b></h5></button>
+          <button id="a" class=" button5" onclick="homehome2()" ><h3><b>Learn More About Us</b></h3></button>
       </b>
     </div>
     <h1>
@@ -354,17 +435,19 @@ and is wrapped around the whole page content, except for the footer in this exam
 
       <div class="w3-row">
       
-      <div class="w3-half w3-container w3-border" id="imagecontainer">
+      <div class="w3-half w3-container " id="imagecontainer">
         <img class="prodimg" src="/images/chat.png" alt="Avatar" >
           <div id="overlay">
           <div class="w3-container" id="text">
               Message Support
               <button onclick="document.getElementById('id02').style.display='block'" class="w3-button w3-black">Read More</button>              
+               
             </div>
           </div>
+          
         </div>
 
-        <div class="w3-half w3-container w3-border" id="imagecontainer">
+        <div class="w3-half w3-container" id="imagecontainer">
           <img class="prodimg" src="/images/chat.png" alt="Avatar" >
           <div id="overlay">
             <div class="w3-container" id="text">
@@ -381,7 +464,7 @@ and is wrapped around the whole page content, except for the footer in this exam
 
     <div class="w3-row">
       
-      <div class="w3-third w3-container w3-border" id="imagecontainer">
+      <div class="w3-half  " id="imagecontainer">
 
       <img class="prodimg" src="/images/chat.png" alt="Avatar" >
           <div id="overlay">
@@ -393,7 +476,7 @@ and is wrapped around the whole page content, except for the footer in this exam
         </div>
 
 
-        <div class="w3-third w3-container w3-border" id="imagecontainer">
+        <div class="w3-half w3-container " id="imagecontainer">
           <img class="prodimg" src="/images/chat.png" alt="Avatar" >
           <div id="overlay">
             <div class="w3-container" id="text">
@@ -402,19 +485,14 @@ and is wrapped around the whole page content, except for the footer in this exam
             </div>
           </div>
         </div>
-
-        
-
-   
- 
     </div>
-
 
 
 
 
       </div>
     <!-- END of ENTRIES -->
+    
     </div>
     
 
@@ -438,7 +516,7 @@ and is wrapped around the whole page content, except for the footer in this exam
            
             <header class="w3-container w3-black">
                   <h1  class="w3-container w3-center">
-                    Calling
+                    Messaging
                 </header>
         <div class="w3-container">
          
@@ -476,11 +554,12 @@ and is wrapped around the whole page content, except for the footer in this exam
     <div id="id02" class="w3-modal">
             <div class="w3-modal-content">
             <span onclick="document.getElementById('id02').style.display='none'" class="w3-button w3-display-topright">&times;</span>
-           
+           <div class="w3-bar">
             <header class="w3-container w3-black">
                   <h1  class="w3-container w3-center">
                     Calling
                 </header>
+            </div>
         <div class="w3-container">
          
               <div class="w3-half w3-container">
@@ -523,10 +602,43 @@ and is wrapped around the whole page content, except for the footer in this exam
 
 
 
+    <div class="w3-container w3-border w3-black">
+
+      <header class="w3-black"> 
+        <p>
+          <div class="w3-container w3-center w3-transparent">
+          The Satisfied Subscribers
+        <br>
+        <span class="fa fa-star checkedstar"></span>
+          <span class="fa fa-star checkedstar"></span>
+          <span class="fa fa-star checkedstar"></span>
+          <span class="fa fa-star checkedstar"></span>
+          <span class="fa fa-star"></span>
+            </div>
+          <h1 class="w3-center">This is how the The Team Satisfy Customer's  desire </h1>
+        </p>
+      </header>
+
+      <div class="w3-transparent w3-container">
+
+      
+        <div class="w3-half w3-border-right w3-border-bottom w3-container">
+           <canvas class="w3-text-white " id="myChart" style="width:100%;max-width:600px"></canvas>
+        </div>
+
+           <div class="w3-half w3-border-left w3-border-bottom w3-container">
+           <canvas id="myChart1" style="width:100%;max-width:600px"></canvas>
+           </div>    
+        </div>
+      
+    <p><h4 class="w3-center"><u > Reach Us To Supply Your Needs</u></h4></p>
+  <i id="ContentContainer" class="w3-button w3-block w3-padding-medium w3-black w3-margin-bottom" onclick="cntInfo()" ><h2 class=" w3-text-red">Sign Up</h2></i>
 
 
 <!-- Footer -->
 <footer class="w3-container w3-black" style="padding:32px">
+
+
   <div class="w3-third w3-container ">
     <h2 class="w3-text w3-center"><u> Subscribe</u> </h2>
       <form   class="w3-text w3-center" action="">
@@ -583,17 +695,72 @@ and is wrapped around the whole page content, except for the footer in this exam
                     <p class="fa fa-cloud w3-text-white w3-hover-opacity">  <a href="https://newmediaservices.com.au" target="_blank">NewMediaServices</a></p>
                     </div>    
                   </div>
+                  <a href="#" class="w3-button w3-black w3-right "><i class="fa fa-arrow-up"></i>Go Up</a>
+
             </div>
 </div>
 </footer>
-
-<script class="w3-red"  language = "javascript" type = "text/javascript">
+</div>
+<!-- <script class="w3-red"  language = "javascript" type = "text/javascript">
 document.write("Hello people!")
+</script> -->
+
+<script 
+src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js">
+src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js">
 </script>
 
 
 
 <script>
+var xValues = [100,200,300,400,500,600,700,800,900,1000];
+
+new Chart("myChart1", {
+  type: "line",
+  data: {
+    labels: xValues,
+    datasets: [{ 
+      data: [860,1140,1060,1060,1070,1110,1330,2210,7830,2478],
+      borderColor: "red",
+      fill: false
+    }, { 
+      data: [1600,1700,1700,1900,2000,2700,4000,5000,6000,7000],
+      borderColor: "green",
+      fill: false
+    }, { 
+      data: [300,700,2000,5000,6000,4000,2000,1000,200,100],
+      borderColor: "blue",
+      fill: false
+    }]
+  },
+  options: {
+    legend: {display: false}
+  }
+});
+
+
+var xValues = [50,60,70,80,90,100,110,120,130,140,150];
+var yValues = [7,8,8,9,9,9,10,11,14,14,15];
+
+new Chart("myChart", {
+  type: "line",
+  data: {
+    labels: xValues,
+    datasets: [{
+      fill: false,
+      lineTension: 0,
+      backgroundColor: "rgba(0,0,255,1.0)",
+      borderColor: "rgba(0,0,255,0.1)",
+      data: yValues
+    }]
+  },
+  options: {
+    legend: {display: false},
+    scales: {
+      yAxes: [{ticks: {min: 6, max:16}}],
+    }
+  }
+});
 
 var slideIndex = [1,2];
 var slideId = ["mySlides1", "mySlides2"]
@@ -653,6 +820,21 @@ function startTime() {
 function checkTime(i) {
   if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
   return i;
+}
+function abouthome() {
+  location.replace("http://127.0.0.1:8000/b0homePage1/#about")  
+}
+function serviceshome() {
+  location.replace("http://127.0.0.1:8000/b0homePage1/#services")  
+}
+function productshome () {
+  location.replace("http://127.0.0.1:8000/b0homePage1/#products")  
+}
+function newshome() {
+  location.replace("http://127.0.0.1:8000/b0homePage1/#news")  
+}
+function homehome2() {
+  location.replace("http://127.0.0.1:8000/b0homePage1")  
 }
 function cntInfo() {
   location.replace("http://127.0.0.1:8000/b1ContactInformation")  
